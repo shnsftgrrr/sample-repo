@@ -1,5 +1,27 @@
 extends includes/layout.pug
 
 block content
-  p test
-  p test 
+  .center
+    p Hello World
+  .notification
+    span.notification__badge#badge
+  .form#signup
+    .form__group
+      label(for='firstname') First Name
+      input#firstname(type='text' placeholder='First Name')
+    .form__group
+      label(for='lastname') Last Name
+      input#lastname(type='text' placeholder='Last Name')
+    .form__group
+      label(for='email') Email
+      input#email(type='email' placeholder='email')
+    .form__group
+      label(for='password') Password
+      input#password(type='password' placeholder='Password')
+    .form__group
+      label(for='confirmpassword') Confirm Password
+      input#confirmpassword(type='password' placeholder='Password')
+    button(type='submit') Submit
+    p#message
+
+
