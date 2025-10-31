@@ -1,0 +1,76 @@
+@use '../../settings/color' as color;
+
+.text {
+  color: color.$yellow;
+  background-color: color.$black;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid color.$black;
+  padding: 50px;
+  max-width: 300px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.header {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4%;
+  }
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: color.$black;
+    }
+  }
+
+  &__logo-text {
+    font-size: 20px;
+    color: color.$yellow;
+  }
+
+  &__item {
+    font-size: 20px;
+
+    &--profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__avatar {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid color.$yellow;
+  }
+}
+
+.notification {
+  &__badge {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 32px;
+    border: 2px solid color.$black;
+  }
+}
