@@ -1,0 +1,29 @@
+{
+  "name": "men-skincare-lp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:pug": "pug src/pug/index.pug --basedir src/pug -o dist --pretty",
+    "build:scss": "sass --load-path=node_modules --quiet-deps src/scss/style.scss dist/css/style.css",
+    "build:js": "node -e \"const fs=require('fs');fs.mkdirSync('dist/js',{recursive:true});fs.copyFileSync('src/js/main.js','dist/js/main.js');\"",
+    "build:img": "node -e \"const fs=require('fs');fs.mkdirSync('dist/img',{recursive:true});if(fs.existsSync('src/img'))fs.cpSync('src/img','dist/img',{recursive:true});\"",
+    "build": "npm run build:pug && npm run build:scss && npm run build:js && npm run build:img",
+    "watch:pug": "pug -w src/pug --basedir src/pug -o dist --pretty",
+    "watch:scss": "sass --load-path=node_modules --quiet-deps --watch src/scss/style.scss dist/css/style.css",
+    "watch:img": "node -e \"const fs=require('fs');fs.watch('src/img',{recursive:true},()=>{console.log('Image change detected → copying to dist/img');fs.mkdirSync('dist/img',{recursive:true});fs.cpSync('src/img','dist/img',{recursive:true});});\"",
+    "serve": "browser-sync start --server dist --files \"dist/**/*.*\" --no-ui --no-notify --inject-changes",
+    "dev": "concurrently \"npm run watch:pug\" \"npm run watch:scss\" \"npm run watch:img\" \"npm run serve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
+    "foundation-sites": "^6.9.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.93.2",
+    "typescript": "^5.9.3"
+  }
+}
